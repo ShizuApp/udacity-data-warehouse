@@ -131,16 +131,16 @@ staging_events_copy = ("""
     copy staging_events from {}
     credentials 'aws_iam_role={}'
     region 'us-west-2' format as JSON {};
-""").format(data_bucket=config['S3']['LOG_DATA'], 
-            role_arn=config['IAM_ROLE']['ARN'], 
-            log_json_path=config['S3']['LOG_JSONPATH'])
+""").format(config['S3']['LOG_DATA'], 
+            config['IAM_ROLE']['ARN'], 
+            config['S3']['LOG_JSONPATH'])
 
 staging_songs_copy = ("""
     copy staging_songs from {}
     credentials 'aws_iam_role={}'
     region 'us-west-2';
-""").format(data_bucket=config['S3']['SONG_DATA'], 
-            role_arn=config['IAM_ROLE']['ARN'])
+""").format(config['S3']['SONG_DATA'], 
+            config['IAM_ROLE']['ARN'])
 
 
 # FINAL TABLES
