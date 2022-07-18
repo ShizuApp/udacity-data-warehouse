@@ -1,5 +1,8 @@
 # automatically generated files
 __pycache__
 
-# TO DO list
-todo
+# AWS user info
+user_credentials.csv
+
+# Script to create cluster using boto3
+create_cluster.py
