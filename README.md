@@ -14,12 +14,9 @@ the data into a star schema for running optimaze queries to meet the goals of th
 
 * **dwh.cfg**: Redshift, IAM and S3 configuration file. 
 
-### Data Warehouse Setup
+* **create_tables.py** runs sql queries to create/reset tables
 
-* Set up a IAM user in AWS with AdministratorAccess
-* Use access key and secret key to create clients for EC2, S3, IAM, and Redshift
-* Create and add an IAM role into Redshift with read access to S3
-* Create a RedShift cluster and fill the DWH_ENDPOINT(Host) and DWH_ROLE_ARN in the config file.
+* **etl.py** loads and inserts the data into the tables
 
 ### Running the scripts:
 
@@ -27,15 +24,15 @@ the data into a star schema for running optimaze queries to meet the goals of th
 
     `pip install -r requitements.txt`
 
-* run **create_tables.py** to creates/resets tables
+* run **create_tables.py**
 
-* run **etl.py** to load and insert the data
+* run **etl.py**
 
 ---
 
 ## Schema Design
 
-Project executes an ETL pipeline (Extract/Transform/Load) to fetch, process and insert the data from S3 to the Redshift warehouse in a star schema optimized for queries to analyze the song play data.
+Project executes an ETL pipeline (Extract/Transform/Load) to fetch, process and insert the data from S3 to the Redshift Warehouse into a star schema optimized for queries to analyze the song play data.
 
 ### Fact Table
 
