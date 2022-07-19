@@ -24,7 +24,7 @@ staging_events_table_create = ("""
     (
         artist          varchar,
         auth            varchar,
-        firstName       varchar
+        firstName       varchar,
         gender          varchar,
         itemSession     integer,
         lastName        varchar,
@@ -44,7 +44,7 @@ staging_events_table_create = ("""
 """)
 
 staging_songs_table_create = ("""
-    CREATE TABLE staging_events
+    CREATE TABLE staging_songs
     (
         num_songs           integer,
         artist_id           varchar,
@@ -157,7 +157,7 @@ songplay_table_insert = ("""
             e.userAgent     AS user_agent
     FROM staging_events e
     JOIN staging_songs  s   ON (e.song = s.title AND e.artist = s.artist_name)
-    AND e.page = 'NextSong'
+    AND e.page = 'NextSong';
 """)
 
 user_table_insert = ("""
